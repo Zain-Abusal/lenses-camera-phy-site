@@ -23,7 +23,7 @@ export function BinocularsChapter() {
         caption={t.ui.schematic}
       />
       <div className="theme-light">
-        <StudyAids aids={B} className="pb-28 lg:pb-36" />
+        <StudyAids aids={{ takeaway: B.takeaway }} className="pb-28 lg:pb-36" />
       </div>
     </section>
   )

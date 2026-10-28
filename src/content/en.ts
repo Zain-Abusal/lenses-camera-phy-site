@@ -112,23 +112,23 @@ export const en: Content = {
     kicker: 'Chapter 01',
     title: 'Lenses in the Eye',
     intro:
-      'Your eye is a nearly spherical, fluid-filled ball that bends light into an image. Most people guess the lens does the bending. Most people are wrong.',
+      'Your eye bends light into an image, and the lens is not what does most of the bending.',
     steps: [
       {
         title: 'Light enters through cornea and pupil',
-        body: 'Light emitted or reflected by an object enters the eye through the **cornea** and the **pupil**. Every surface it crosses from here on bends it toward one image.',
+        body: 'Light enters through the **cornea** and the **pupil**.',
       },
       {
         title: 'The cornea does most of the bending',
-        body: 'Air (n = 1.00) and the cornea (n ≈ 1.4) have very different **indices of refraction**, so light bends most at this boundary, not at the lens.',
+        body: 'Air (n = 1.00) → cornea (n ≈ 1.4): the biggest jump in **index of refraction**, so the most bending.',
       },
       {
         title: 'The lens only fine-tunes the focus',
-        body: 'The **lens** fine-tunes the focus. Because its shape can change, you can glance from your phone to the board and see both clearly.',
+        body: 'The **lens** changes shape to fine-tune the focus.',
       },
       {
         title: 'The image lands on the retina',
-        body: 'Light focuses on the **retina** at the back of the eye. Its cells absorb the light, and the **optic nerve** carries the image information to the brain.',
+        body: 'The image forms on the **retina**; the **optic nerve** sends it to the brain.',
       },
     ],
     takeaway:
@@ -192,12 +192,12 @@ export const en: Content = {
     },
     accommodation: {
       title: 'Accommodation',
-      body: 'The muscles around the lens contract or relax, changing its shape and so the eye’s **focal length**. Relaxed: images of distant objects focus on the retina. Contracted: the focal length shortens, so images of near objects focus on the retina. That is why, when you look down from the board to your book, the muscles contract to keep the words sharp.',
+      body: 'Muscles relax for distant objects and contract (shorter **focal length**) for near ones.',
       far: 'Distant object',
       near: 'Near object',
       relaxed: 'Muscles relaxed',
       contracted: 'Muscles contracted — shorter focal length',
-      caption: 'The nearer the object, the more the muscles contract: the focal length shortens and the image stays on the retina.',
+      caption: 'Nearer object → muscles contract → shorter focal length.',
     },
     contactLenses: {
       title: 'Physics in your life: contact lenses',
@@ -209,7 +209,7 @@ export const en: Content = {
     kicker: 'Chapter 02 · Nearsightedness and farsightedness',
     title: 'Not everything we see is clear.',
     intro:
-      'In most people’s eyes the image lands slightly in front of the retina or behind it. Glasses and contact lenses change the focal length to move it back on.',
+      'When the image misses the retina, glasses change the focal length to put it back.',
     myopia: 'Nearsightedness',
     hyperopia: 'Farsightedness',
     withLens: 'With corrective lens',
@@ -220,7 +220,7 @@ export const en: Content = {
         cause: 'The focal length of the eye is too short.',
         result: 'The rays meet before they reach the retina, so images form **in front of** it.',
         symptom: 'Distant objects look blurry; near objects are clear.',
-        fix: 'A **concave lens** spreads the rays slightly before they enter the eye. This increases the focal length, so the image moves back onto the retina.',
+        fix: 'A **concave lens** spreads the rays, increasing the focal length.',
         fixed: 'The image now forms on the retina.',
         lensName: 'Concave lens',
       },
@@ -229,13 +229,13 @@ export const en: Content = {
         cause: 'The focal length of the eye is longer than in a healthy eye.',
         result: 'Light reaches the retina **before** the image can form, so the image is not formed on the retina.',
         symptom: 'Near objects look blurry.',
-        fix: 'A **convex lens** brings the rays together slightly before they enter the eye, forming a virtual image farther from the eye than the object. The eye’s lens can focus that image, so the image moves forward onto the retina.',
+        fix: 'A **convex lens** converges the rays, decreasing the focal length.',
         fixed: 'The image now forms on the retina.',
         lensName: 'Convex lens',
       },
     },
     ageNote:
-      'After about age 45 the eye’s lens becomes more rigid, so the muscles can’t shorten the focal length enough to focus near objects. The result is like farsightedness, and convex lenses correct it too.',
+      'After about 45 the lens stiffens: like farsightedness, fixed with convex lenses.',
     retina: 'Retina',
     focus: 'Image',
     blur: 'Blurry',
@@ -264,23 +264,23 @@ export const en: Content = {
     kicker: 'Chapter 03',
     title: 'Cameras',
     intro:
-      'A single-lens reflex camera copies the eye with glass, a mirror and a prism. One lens lets you preview the scene and record it.',
+      'A reflex camera works like the eye, using lenses, a mirror and a prism.',
     steps: [
       {
         title: 'Light enters through the aperture',
-        body: 'Light enters through the lens **aperture** and passes through an **achromatic lens**, a group of lenses working as one that reduces coloured fringes.',
+        body: 'Light enters through the **aperture** and an **achromatic lens**.',
       },
       {
         title: 'The lenses act as one convex lens',
-        body: 'The lens system refracts light like a single **convex lens**, forming an **inverted** image on the reflex mirror. A prism redirects it to the photographer’s eye.',
+        body: 'They form an **inverted** image; mirror and prism send it to your eye.',
       },
       {
         title: 'The shutter release lifts the mirror',
-        body: 'Pressing the **shutter release** raises the mirror briefly. The light no longer goes up to the prism; it travels straight on and forms the image on the **image sensor**.',
+        body: 'The mirror lifts and the image forms on the **image sensor**.',
       },
       {
         title: 'A CCD turns light into charge',
-        body: 'The sensor is usually a **CCD**. It collects electric charge proportional to the light intensity, so brighter parts of the image build more charge. The data is then stored.',
+        body: 'A **CCD** stores charge proportional to light intensity.',
       },
     ],
     takeaway:
@@ -315,7 +315,7 @@ export const en: Content = {
     shutterToggle: { closed: 'Shutter closed', open: 'Shutter open', title: 'Press the shutter release' },
     ccd: {
       title: 'Charge-coupled device (CCD)',
-      body: 'Captures a two-dimensional image matching the one formed on it. Each light-sensitive spot collects electric charge **proportional to the light intensity**; the CCD processes the charge and sends the information to storage.',
+      body: 'Collects electric charge **proportional to the light intensity**, then sends it to storage.',
     },
     focusTitle: 'Focusing on the sensor',
     focusBody:
@@ -361,23 +361,23 @@ export const en: Content = {
     num: '04',
     kicker: 'Chapter 04',
     title: 'The Compound Microscope',
-    intro: 'Some things are too small for the eye to see. A microscope magnifies them in two stages, with two convex lenses in a row.',
+    intro: 'Two convex lenses magnify tiny objects in two stages.',
     steps: [
       {
         title: 'Two convex lenses, short focal lengths',
-        body: 'An **objective** lens near the object and an **eyepiece** lens you look through. Both are convex with relatively small focal lengths, and each magnifies in turn.',
+        body: 'An **objective** and an **eyepiece**, each magnifying in turn.',
       },
       {
         title: 'Objective: the first image',
-        body: 'The object sits **between F and 2F** of the objective (between one and two focal lengths). That is why the **first image** is real, inverted and larger than the object.',
+        body: 'Object **between F and 2F** → real, inverted, larger **first image**.',
       },
       {
         title: 'Eyepiece: the final image',
-        body: 'The first image becomes the object for the eyepiece and lies between the eyepiece and its focal point. So the eyepiece forms the **final image**: **virtual**, upright relative to the first image, and larger.',
+        body: 'The eyepiece magnifies it into a **virtual** **final image**.',
       },
       {
         title: 'Final image: inverted and huge',
-        body: 'The eyepiece doesn’t flip the first image back, so the final image stays **inverted** relative to the object. It can be hundreds of times larger.',
+        body: 'Still **inverted**, and up to hundreds of times larger.',
       },
     ],
     takeaway:
@@ -418,23 +418,23 @@ export const en: Content = {
     kicker: 'Chapter 05',
     title: 'The Refracting Telescope',
     intro:
-      'Starlight travels so far that its rays arrive parallel. A refracting telescope (the Kepler system) turns them into a magnified image you can study.',
+      'Starlight arrives as parallel rays; two lenses turn it into a magnified image.',
     steps: [
       {
         title: 'Starlight arrives as parallel rays',
-        body: 'Stars are so far away that the incoming rays can be treated as **parallel**. Parallel rays passing through a convex lens meet at its focal point.',
+        body: 'Distant stars send **parallel** rays.',
       },
       {
         title: 'Objective: the first image',
-        body: 'The convex **objective** converges the rays into the **first image** at its focal point: a **real** image, inverted compared with the object. This image becomes the object for the eyepiece.',
+        body: 'The **objective** forms a **real**, inverted **first image** at its focal point.',
       },
       {
         title: 'Eyepiece: the final image',
-        body: 'The objective’s focal point lies between the eyepiece and the eyepiece’s focal point, so the eyepiece forms the **final image**: **virtual**, upright relative to the first image, and larger.',
+        body: 'The eyepiece magnifies it into a **virtual** **final image**.',
       },
       {
         title: 'Inverted, and that’s acceptable',
-        body: 'The first image is inverted and the eyepiece doesn’t flip it back, so the final image stays **inverted** relative to the object. For viewing celestial objects, an **inverted image** is acceptable.',
+        body: 'The final image stays **inverted**, which is fine for stars.',
       },
     ],
     takeaway:
@@ -465,7 +465,7 @@ export const en: Content = {
     },
     achromatic: {
       title: 'Achromatic eyepiece',
-      body: 'The eyepiece is often an **achromatic lens**: a group of lenses working as one. It reduces the coloured fringes and removes the **chromatic aberration** that forms with images.',
+      body: 'Often an **achromatic lens**, which removes coloured fringes (**chromatic aberration**).',
     },
     viewTitle: 'Through the eyepiece',
     viewObject: 'Object',
@@ -476,19 +476,19 @@ export const en: Content = {
     kicker: 'Chapter 06',
     title: 'Binoculars',
     intro:
-      'Ever used binoculars to watch a sports event or birds? They are two small telescopes side by side, with one key difference: you see the image upright, and in 3D.',
+      'Two small telescopes side by side, with prisms that make the image upright.',
     steps: [
       {
         title: 'Objective: an inverted image',
-        body: 'Light enters through the convex **objective**, which forms an **inverted** image, exactly as in a refracting telescope. Left like that, you would see the scene inverted.',
+        body: 'The **objective** forms an **inverted** image, as in a telescope.',
       },
       {
         title: 'Prisms flip the image upright',
-        body: 'The light then passes through two **prisms**, where it undergoes **total internal reflection**. This reflection inverts the image again, so you see it upright. The prisms also lengthen the light path and direct it to the eyepiece.',
+        body: 'Two **prisms** flip it upright by **total internal reflection**.',
       },
       {
         title: 'Wider spacing gives better depth',
-        body: 'Your eyes sense depth because they are apart. The prisms let the two objectives sit even farther apart, so the **three-dimensional view** improves.',
+        body: 'Objectives farther apart give a better **3D view**.',
       },
     ],
     takeaway:
@@ -517,7 +517,7 @@ export const en: Content = {
   finale: {
     kicker: 'Finale',
     title: 'Every lens opens a new window.',
-    text: 'One rule, light bends when it changes medium, explains how we see, how we record the world, and how we explore what is too small or too far for our eyes.',
+    text: 'One rule, light bends when it changes medium, explains all of it.',
     cta: 'Test yourself',
     items: {
       eye: 'The eye: the cornea does most of the focusing; the lens fine-tunes it onto the retina.',

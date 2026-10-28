@@ -78,10 +78,7 @@ export function MicroscopeChapter() {
         caption={t.ui.schematic}
       />
       <div className="theme-light">
-        <StudyAids aids={M} />
-        <div className="mx-auto max-w-[1200px] px-6 py-28 sm:px-10 lg:py-36">
-          <MicroscopeDemo />
-        </div>
+        <StudyAids aids={{ takeaway: M.takeaway }} className="pb-28 lg:pb-36" />
       </div>
     </section>
   )

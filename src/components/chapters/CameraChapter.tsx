@@ -110,7 +110,7 @@ export function CameraChapter() {
         caption={t.ui.schematic}
       />
       <div className="theme-light">
-        <StudyAids aids={T} />
+        <StudyAids aids={{ takeaway: T.takeaway }} />
       <div className="mx-auto max-w-[1200px] space-y-32 px-6 py-28 sm:px-10 lg:py-36">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -123,15 +123,6 @@ export function CameraChapter() {
           </div>
           <div className="lg:col-span-8">
             <ShutterPlay />
-          </div>
-        </div>
-        <div>
-          <h3 className="headline-2 text-paper">{T.focusTitle}</h3>
-          <p className="mt-4 max-w-[46ch] text-[19px] text-paper-dim">
-            <Rich text={T.focusBody} />
-          </p>
-          <div className="mt-10">
-            <FocusDemo />
           </div>
         </div>
         <div>

@@ -2,7 +2,6 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import type { EyePart, Step } from '@/content/types'
 import { useLang } from '@/lib/i18n'
 import { ChapterHeader } from '@/components/ui/ChapterHeader'
-import { Note, Segmented, Tag } from '@/components/ui/controls'
 import { PinnedChapter } from '@/components/scroll/PinnedChapter'
 import { eyeHot, POSE, useEye3D, type EyePose } from '@/components/eye/store'
 import { seg, smooth, type ProgressStore } from '@/components/scroll/store'
@@ -101,42 +100,6 @@ function Explore() {
   )
 }
 
-function Accommodation() {
-  const { t } = useLang()
-  const [near, setNear] = useState(false)
-  const A = t.eye.accommodation
-  return (
-    <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-6 pb-28 sm:px-10 lg:grid-cols-12 lg:pb-36">
-      <div className="lg:col-span-4">
-        <h3 className="headline-2 text-paper">{A.title}</h3>
-        <p className="mt-4 text-[17px] text-paper-dim">
-          <Rich text={A.body} />
-        </p>
-        <Segmented
-          className="mt-8"
-          label={A.title}
-          value={near ? 'near' : 'far'}
-          onChange={(v) => setNear(v === 'near')}
-          options={[
-            { value: 'far', label: A.far },
-            { value: 'near', label: A.near },
-          ]}
-        />
-        <p className="mt-4 text-[14px] font-medium text-amber" aria-live="polite">
-          {near ? A.contracted : A.relaxed}
-        </p>
-      </div>
-      <figure className="rounded-[28px] bg-ink-900 p-4 sm:p-8 lg:col-span-8">
-        <AccommodationDiagram near={near} />
-        <figcaption className="mt-4 flex flex-wrap items-center justify-between gap-2 text-[14px] text-mist">
-          <span>{A.caption}</span>
-          <Tag>{t.ui.schematic}</Tag>
-        </figcaption>
-      </figure>
-    </div>
-  )
-}
-
 export function EyeChapter() {
   const { t } = useLang()
   const E = t.eye
@@ -152,14 +115,8 @@ export function EyeChapter() {
         caption={t.ui.schematic}
       />
       <div className="theme-light">
-        <StudyAids aids={E} />
+        <StudyAids aids={{ takeaway: E.takeaway }} />
         <Explore />
-        <Accommodation />
-        <div className="mx-auto max-w-[1200px] px-6 pb-28 sm:px-10 lg:pb-36">
-          <Note title={E.contactLenses.title} className="max-w-2xl">
-            <p>{E.contactLenses.body}</p>
-          </Note>
-        </div>
       </div>
     </section>
   )

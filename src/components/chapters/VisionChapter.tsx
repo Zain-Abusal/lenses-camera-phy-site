@@ -76,7 +76,7 @@ export function VisionChapter() {
         caption={t.ui.schematic}
       />
       <div className="theme-light">
-        <StudyAids aids={V} />
+        <StudyAids aids={{ takeaway: V.takeaway }} />
       <div className="mx-auto grid max-w-[1200px] gap-12 px-6 py-28 sm:px-10 lg:grid-cols-12 lg:py-36">
         <div className="space-y-6 lg:col-span-4">
           <div className="flex flex-wrap gap-3">
