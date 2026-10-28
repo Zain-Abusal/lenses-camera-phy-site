@@ -1,0 +1,390 @@
+@import 'tailwindcss';
+
+/* inline: utilities must read the section's --fg/--bg, not the values resolved once at :root */
+@theme inline {
+  --color-ink-950: var(--bg);
+  --color-ink-900: var(--bg-raised);
+  --color-ink-850: var(--bg-raised);
+  --color-ink-800: var(--bg-tile);
+  --color-ink-700: var(--bg-tile);
+  --color-paper: var(--fg);
+  --color-paper-dim: var(--fg-2);
+  --color-mist: var(--fg-3);
+  --color-mist-dim: var(--fg-4);
+  --color-ray: var(--accent);
+  --color-ice: var(--d-ray);
+  --color-amber: var(--warm);
+  --color-amber-dim: var(--warm);
+  --color-rose: var(--alert);
+  --color-line: var(--hair);
+  --color-line-strong: var(--hair-2);
+
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', Inter, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', Inter, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: var(--font-sans);
+
+  --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ---- Themes: black story sections (default) and light explanation/study sections ---- */
+:root,
+.theme-dark {
+  --bg: #000000;
+  --bg-raised: #0d0d0f;
+  --bg-tile: #161618;
+  --fg: #f5f5f7;
+  --fg-2: #a1a1a6;
+  --fg-3: #86868b;
+  --fg-4: #6e6e73;
+  --accent: #2997ff;
+  --warm: #ffb547;
+  --alert: #ff6961;
+  --hair: rgb(255 255 255 / 0.12);
+  --hair-2: rgb(255 255 255 / 0.24);
+  /* diagram palette */
+  --d-ray: #cfeaff;
+  --d-ray-2: #9fd3ff;
+  --d-glass: rgb(207 234 255 / 0.1);
+  --d-glass-edge: rgb(207 234 255 / 0.65);
+  --d-body: #0d0d10;
+  --d-body-edge: rgb(255 255 255 / 0.22);
+  --d-axis: rgb(255 255 255 / 0.16);
+  --d-label: #a1a1a6;
+  --d-label-strong: #f5f5f7;
+  --d-retina: #ff8a8a;
+  --d-nerve: #e3b05c;
+  --d-sclera: #e9e3d9;
+  --d-vit-a: #17100f;
+  --d-vit-b: #070505;
+}
+.theme-light {
+  --bg: #f5f5f7;
+  --bg-raised: #ffffff;
+  --bg-tile: #ffffff;
+  --fg: #1d1d1f;
+  --fg-2: #6e6e73;
+  --fg-3: #86868b;
+  --fg-4: #86868b;
+  --accent: #0071e3;
+  --warm: #b86e00;
+  --alert: #d70015;
+  --hair: #d2d2d7;
+  --hair-2: #b0b0b5;
+  --d-ray: #0071e3;
+  --d-ray-2: #3d8fe0;
+  --d-glass: rgb(0 113 227 / 0.07);
+  --d-glass-edge: rgb(0 80 160 / 0.55);
+  --d-body: #ffffff;
+  --d-body-edge: #c7c7cc;
+  --d-axis: rgb(0 0 0 / 0.16);
+  --d-label: #6e6e73;
+  --d-label-strong: #1d1d1f;
+  --d-retina: #d4485a;
+  --d-nerve: #b8862e;
+  --d-sclera: #cfc6b8;
+  --d-vit-a: #ffffff;
+  --d-vit-b: #f3f1ee;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+:root:lang(ar),
+[dir='rtl'] {
+  /* display: geometric Readex Pro for large headlines; text: IBM Plex Sans Arabic (closest to SF Arabic) */
+  --font-display: 'Readex Pro', 'SF Arabic', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-sans: 'IBM Plex Sans Arabic', 'SF Arabic', system-ui, sans-serif;
+}
+
+/* Arabic letters join: never track them, whatever utility class is applied */
+[dir='rtl'] *,
+[dir='rtl'] *::before,
+[dir='rtl'] *::after {
+  letter-spacing: 0 !important;
+}
+/* Arabic reads smaller than Latin at the same size; keep maths/numbers in LTR isolates */
+[dir='rtl'] body {
+  font-size: 18px;
+}
+bdi[dir='ltr'],
+.math {
+  unicode-bidi: isolate;
+  direction: ltr;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Typesetting */
+h1,
+h2,
+h3,
+.headline,
+.headline-2,
+.aid-statement {
+  text-wrap: balance;
+}
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+body {
+  font-optical-sizing: auto;
+  hanging-punctuation: first last;
+}
+
+/* Custom scrollbar: thin, translucent, adapts to the section underneath via --fg */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(134 134 139 / 0.55) transparent;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(134 134 139 / 0.45);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(134 134 139 / 0.8);
+  background-clip: content-box;
+}
+
+html {
+  background: #000;
+  color: var(--fg);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.01em;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+[dir='rtl'] body,
+:root[dir='rtl'] {
+  letter-spacing: 0;
+  line-height: 1.7;
+}
+
+::selection {
+  background: rgb(41 151 255 / 0.35);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Type scale ---- */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+.headline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(40px, 6.4vw, 88px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.headline-2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(32px, 4.2vw, 56px);
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+}
+.eyebrow {
+  font-size: clamp(17px, 1.5vw, 21px);
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+.subhead {
+  font-size: clamp(19px, 1.9vw, 26px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--fg-2);
+  letter-spacing: -0.012em;
+}
+/* study aids: the chapter takeaway as one large, calm statement */
+.aid-statement {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(28px, 3.6vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -0.022em;
+}
+.aid-statement strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+[dir='rtl'] .aid-statement {
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+/* former mono labels → small, calm captions */
+.mono {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-transform: none;
+}
+[dir='rtl'] .font-display,
+[dir='rtl'] .headline,
+[dir='rtl'] .headline-2,
+[dir='rtl'] .eyebrow,
+[dir='rtl'] .subhead,
+[dir='rtl'] .mono {
+  letter-spacing: 0;
+}
+[dir='rtl'] .font-display,
+[dir='rtl'] .headline,
+[dir='rtl'] .headline-2 {
+  line-height: 1.3;
+  font-weight: 600;
+}
+[dir='rtl'] .headline {
+  font-size: clamp(38px, 5.6vw, 80px);
+}
+[dir='rtl'] .subhead {
+  line-height: 1.6;
+}
+
+/* ---- Diagrams: always LTR; text in current language font ---- */
+.diagram text {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  fill: var(--d-label);
+}
+[dir='rtl'] .diagram text {
+  font-size: 13px;
+}
+.diagram text.lbl-strong {
+  fill: var(--d-label-strong);
+}
+.diagram text.lbl-ray {
+  fill: var(--d-ray);
+}
+.diagram text.lbl-amber {
+  fill: var(--warm);
+}
+
+/* ---- Radix slider ---- */
+.slider-root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  touch-action: none;
+  width: 100%;
+  height: 44px;
+}
+.slider-track {
+  position: relative;
+  flex-grow: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--hair);
+}
+.slider-range {
+  position: absolute;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--accent);
+}
+.slider-thumb {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.35), 0 0 0 0.5px rgb(0 0 0 / 0.1);
+  cursor: grab;
+}
+
+.scroll-cue {
+  animation: cue 2.4s var(--ease-apple) infinite;
+}
+@keyframes cue {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---- Chapter colour: one accent tint per chapter (eyebrow, title glow), like product colours ---- */
+#hero { --tint: #2997ff; }
+#eye { --tint: #ffb340; }
+#vision { --tint: #64d2ff; }
+#camera { --tint: #ff7a45; }
+#microscope { --tint: #30d158; }
+#telescope { --tint: #8e8cff; }
+#binoculars { --tint: #da8fff; }
+#finale { --tint: #2997ff; }
+.eyebrow {
+  color: var(--tint, var(--accent));
+}
+.theme-light .eyebrow {
+  color: color-mix(in srgb, var(--tint, var(--accent)) 62%, #1d1d1f);
+}
+.chapter-head {
+  isolation: isolate;
+}
+.chapter-head::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(60% 60% at 50% 72%, color-mix(in srgb, var(--tint, var(--accent)) 20%, transparent), transparent 72%);
+}
+
+/* word-reveal mask: room for ascenders/descenders without shifting layout (more for Arabic) */
+.wr-mask {
+  padding-block: 0.1em 0.16em;
+  margin-block: -0.1em -0.16em;
+}
+[dir='rtl'] .wr-mask {
+  padding-block: 0.3em 0.4em;
+  margin-block: -0.3em -0.4em;
+}
