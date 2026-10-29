@@ -65,6 +65,8 @@ export const en: Content = {
     step: 'Step',
     reducedMotion: 'Reduced motion is on — animations are simplified.',
     toTop: 'Back to top',
+    previousChapter: 'Previous chapter',
+    nextChapter: 'Next chapter',
     aids: {
       takeaway: 'The takeaway',
       remember: 'Remember',
