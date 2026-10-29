@@ -19,7 +19,7 @@ export function SiteHeader() {
         light ? 'theme-light bg-[rgb(245_245_247/0.8)]' : 'bg-[rgb(0_0_0/0.72)]',
       )}
     >
-      <div className="mx-auto flex h-12 max-w-[1280px] items-center justify-between gap-4 px-4 sm:px-6">
+      <div className="mx-auto flex h-[calc(3rem+env(safe-area-inset-top))] max-w-[1280px] items-center justify-between gap-4 px-4 pt-[env(safe-area-inset-top)] sm:px-6">
         <a
           href="#hero"
           onClick={(e) => {

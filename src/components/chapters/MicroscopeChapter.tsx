@@ -51,7 +51,7 @@ export function MicroscopeDemo() {
         </p>
         <p className="text-[14px] text-mist">{readout}</p>
       </div>
-      <figure className="rounded-[28px] bg-ink-900 p-4 sm:p-8 lg:col-span-8">
+      <figure className="rounded-lg bg-ink-900 p-4 sm:p-8 lg:col-span-8">
         <MicroscopeDemoDiagram dObj={dObj} />
         <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-mist">
           <span>{M.demoCaption}</span>
@@ -71,14 +71,14 @@ export function MicroscopeChapter() {
       <PinnedChapter
         label={M.title}
         steps={M.steps}
-        vhPerUnit={45}
+        vhPerUnit={38}
         pre={[{ kicker: t.ui.artistic, title: M.zoomNote }]}
         preStage={(store) => <MicroPre store={store} />}
         diagram={(s) => <MicroscopeDiagram step={s} eyeSlot />}
         caption={t.ui.schematic}
       />
       <div className="theme-light">
-        <StudyAids aids={{ takeaway: M.takeaway }} className="pb-28 lg:pb-36" />
+        <StudyAids aids={{ takeaway: M.takeaway, remember: M.remember, mistake: M.mistake, terms: M.terms }} className="pb-28 lg:pb-36" />
       </div>
     </section>
   )

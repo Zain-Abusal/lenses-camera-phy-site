@@ -93,7 +93,7 @@ function Explore() {
           </p>
         </div>
       </div>
-      <div className="rounded-[28px] bg-ink-900 p-4 sm:p-8 lg:col-span-8">
+      <div className="rounded-lg bg-ink-900 p-4 sm:p-8 lg:col-span-8">
         <EyeExploreDiagram part={part} onPick={setPart} />
       </div>
     </div>
@@ -115,7 +115,7 @@ export function EyeChapter() {
         caption={t.ui.schematic}
       />
       <div className="theme-light">
-        <StudyAids aids={{ takeaway: E.takeaway }} />
+        <StudyAids aids={{ takeaway: E.takeaway, remember: E.remember, mistake: E.mistake, terms: E.terms }} />
         <Explore />
       </div>
     </section>

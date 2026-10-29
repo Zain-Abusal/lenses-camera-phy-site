@@ -13,6 +13,7 @@ import { Finale } from '@/components/chapters/Finale'
 import { Study } from '@/components/study/Study'
 import { Footer } from '@/components/ui/Footer'
 import { ScrollRing } from '@/components/ui/ScrollRing'
+import { ChapterArrows } from '@/components/ui/ChapterArrows'
 import { SmoothScroll } from '@/components/scroll/SmoothScroll'
 import { useScrollTriggerRefresh } from '@/components/scroll/useStoryMode'
 
@@ -42,6 +43,7 @@ export default function App() {
         <Study />
       </main>
       <Footer />
+      <ChapterArrows />
       <ScrollRing />
     </MotionConfig>
   )

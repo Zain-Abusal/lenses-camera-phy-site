@@ -76,7 +76,7 @@ export function VisionChapter() {
         caption={t.ui.schematic}
       />
       <div className="theme-light">
-        <StudyAids aids={{ takeaway: V.takeaway }} />
+        <StudyAids aids={{ takeaway: V.takeaway, remember: V.remember, mistake: V.mistake, terms: V.terms }} />
       <div className="mx-auto grid max-w-[1200px] gap-12 px-6 py-28 sm:px-10 lg:grid-cols-12 lg:py-36">
         <div className="space-y-6 lg:col-span-4">
           <div className="flex flex-wrap gap-3">
@@ -124,7 +124,7 @@ export function VisionChapter() {
           </div>
           <Symptom defect={defect} corrected={corrected} />
         </div>
-        <figure className="rounded-[28px] bg-ink-900 p-4 sm:p-8 lg:sticky lg:top-20 lg:col-span-8 lg:self-start">
+        <figure className="rounded-lg bg-ink-900 p-4 sm:p-8 lg:sticky lg:top-20 lg:col-span-8 lg:self-start">
           <VisionDiagram defect={defect} corrected={corrected} />
           <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-mist">
             <span>{V.caption}</span>

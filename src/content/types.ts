@@ -79,6 +79,8 @@ export interface Content {
     step: string
     reducedMotion: string
     toTop?: string
+    previousChapter: string
+    nextChapter: string
     aids?: {
       takeaway: string
       remember: string

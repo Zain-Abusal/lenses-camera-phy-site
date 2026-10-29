@@ -16,7 +16,13 @@ export function SmoothScroll() {
   const reduce = usePrefersReducedMotion()
   useEffect(() => {
     if (reduce) return
-    const l = new Lenis({ lerp: 0.09, wheelMultiplier: 0.9, smoothWheel: true })
+    const l = new Lenis({
+      lerp: 0.09,
+      wheelMultiplier: 0.9,
+      smoothWheel: true,
+      syncTouch: false,
+      autoResize: true,
+    })
     lenis = l
     l.on('scroll', ScrollTrigger.update)
     const tick = (time: number) => l.raf(time * 1000)

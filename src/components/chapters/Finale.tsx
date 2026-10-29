@@ -28,17 +28,17 @@ export function Finale() {
   const draw = useTransform(scrollYProgress, [0, 1], [0, 1])
   const items = dir === 'rtl' ? [...ITEMS].reverse() : ITEMS
   return (
-    <section id="finale" aria-labelledby="finale-title" className="relative overflow-hidden py-28 lg:py-40">
-      <EyeSlot name="finale" pose={{ ...POSE.front, pupil: 0.5, fill: 0.9 }} className="mx-auto h-[38vh] w-full max-w-[420px]" />
-      <div className="relative mx-auto mt-10 max-w-[980px] px-6 text-center sm:px-10">
+    <section id="finale" aria-labelledby="finale-title" className="relative overflow-hidden py-16 lg:py-20">
+      <EyeSlot name="finale" pose={{ ...POSE.front, pupil: 0.5, fill: 0.9 }} className="mx-auto h-[22svh] min-h-[140px] max-h-[220px] w-full max-w-[360px]" />
+      <div className="relative mx-auto mt-5 max-w-[980px] px-6 text-center sm:px-10">
         <p className="eyebrow">{t.finale.kicker}</p>
         <WordReveal as="h2" id="finale-title" text={t.finale.title} className="headline mt-3 text-paper" />
         <p className="subhead mx-auto mt-6 max-w-[40ch]">{t.finale.text}</p>
       </div>
 
       {/* desktop: motifs threaded on one ray */}
-      <div ref={ref} className="relative mx-auto mt-20 hidden max-w-[1200px] px-10 md:block">
-        <div className="relative aspect-[1000/460] w-full">
+      <div ref={ref} className="relative mx-auto mt-9 hidden max-w-[1200px] px-10 md:block">
+        <div className="relative aspect-[1000/360] w-full">
           <svg viewBox="0 0 1000 460" preserveAspectRatio="none" className="absolute inset-0 h-full w-full" aria-hidden>
             <path d={RAY} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth={1} vectorEffect="non-scaling-stroke" />
             <motion.path
@@ -71,7 +71,7 @@ export function Finale() {
       </div>
 
       {/* mobile: vertical thread */}
-      <ol className="relative mx-auto mt-14 max-w-xl space-y-10 px-5 md:hidden">
+      <ol className="relative mx-auto mt-8 max-w-xl space-y-5 px-5 md:hidden">
         <span aria-hidden className="absolute inset-y-0 start-[49px] w-px bg-linear-to-b from-paper/40 via-paper/15 to-transparent" />
         {ITEMS.map(({ k, Icon }) => (
           <li key={k} className="relative flex items-start gap-5">
@@ -83,7 +83,7 @@ export function Finale() {
         ))}
       </ol>
 
-      <div className="relative mx-auto mt-20 flex max-w-7xl justify-center px-6">
+      <div className="relative mx-auto mt-10 flex max-w-7xl justify-center px-6">
         <Magnetic>
           <a
             href="#study"

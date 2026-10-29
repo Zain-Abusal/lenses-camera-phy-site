@@ -60,7 +60,7 @@ export function TelescopeChapter() {
         caption={t.ui.schematic}
       />
       <div className="theme-light">
-        <StudyAids aids={{ takeaway: T.takeaway }} className="pb-28 lg:pb-36" />
+        <StudyAids aids={{ takeaway: T.takeaway, remember: T.remember, mistake: T.mistake, terms: T.terms }} className="pb-28 lg:pb-36" />
       </div>
       <div className="mx-auto grid max-w-[1200px] items-center gap-16 px-6 py-28 sm:px-10 lg:grid-cols-12 lg:py-36">
         <div className="lg:col-span-5">

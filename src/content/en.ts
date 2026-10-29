@@ -65,6 +65,8 @@ export const en: Content = {
     step: 'Step',
     reducedMotion: 'Reduced motion is on — animations are simplified.',
     toTop: 'Back to top',
+    previousChapter: 'Previous slide',
+    nextChapter: 'Next slide',
     aids: {
       takeaway: 'The takeaway',
       remember: 'Remember',
@@ -337,7 +339,7 @@ export const en: Content = {
       },
       {
         aspect: 'Lenses',
-        eye: 'The cornea does most of the focusing; the lens improves it',
+        eye: 'The cornea does most of the refraction; the lens fine-tunes the focus',
         camera: 'A lens system that acts like a single convex lens',
       },
       {
@@ -348,7 +350,7 @@ export const en: Content = {
       {
         aspect: 'Where the image forms',
         eye: 'On the retina',
-        camera: 'On the image sensor (on the mirror while the shutter is closed)',
+        camera: 'On the sensor when the shutter is open; the viewfinder directs it to the eye when closed',
       },
       {
         aspect: 'Recording the image',
@@ -520,17 +522,17 @@ export const en: Content = {
     text: 'One rule, light bends when it changes medium, explains all of it.',
     cta: 'Test yourself',
     items: {
-      eye: 'The eye: the cornea does most of the focusing; the lens fine-tunes it onto the retina.',
-      camera: 'The camera: a lens system acts as one convex lens and forms an inverted image on the sensor.',
-      microscope: 'The microscope: two convex lenses make small objects hundreds of times larger; the image is inverted.',
-      telescope: 'The telescope: the objective forms a real image at its focal point, the eyepiece magnifies it, and the final image stays inverted.',
-      binoculars: 'Binoculars: prisms flip the image upright by total internal reflection and add depth.',
+      eye: 'The cornea refracts most light; the lens focuses it on the retina.',
+      camera: 'The lenses form an inverted image on the sensor.',
+      microscope: 'The objective forms a real, inverted image; the eyepiece magnifies it into a virtual image.',
+      telescope: 'The objective forms a real image at its focal point; the eyepiece magnifies it, still inverted.',
+      binoculars: 'Two prisms use total internal reflection to turn the image upright.',
     },
   },
   study: {
     kicker: 'Study zone',
     title: 'Review, explore, test yourself',
-    intro: 'Try the optics yourself, work through the cornea problem, take the quiz, then revise with the summary and exam tips.',
+    intro: 'Explore optics, solve problems, and test your understanding.',
     tabs: { explore: 'Explore', compare: 'Compare', quiz: 'Quiz', summary: 'Summary', progress: 'Progress', examples: 'Examples' },
     explore: {
       title: 'Interactive explorations',

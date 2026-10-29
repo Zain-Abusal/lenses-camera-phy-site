@@ -37,6 +37,10 @@ export function createStore(units: number, initial = 0): ProgressStore {
 export const finalStore = (units: number) => createStore(units, units)
 
 export const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v)
+export const storySnapPoints = (units: number) => [0, ...Array.from({ length: units }, (_, i) => (i + 0.55) / units), 1]
+export const nearestStorySnap = (progress: number, points: number[]) =>
+  points.reduce((nearest, point, i) =>
+    Math.abs(point - progress) < Math.abs(points[nearest] - progress) ? i : nearest, 0)
 /** Local 0..1 progress of a window [a, b] of the timeline. */
 export const seg = (t: number, a: number, b: number) => clamp01((t - a) / (b - a))
 export const smooth = (v: number) => v * v * (3 - 2 * v)
