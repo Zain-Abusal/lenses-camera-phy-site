@@ -522,11 +522,11 @@ export const en: Content = {
     text: 'One rule, light bends when it changes medium, explains all of it.',
     cta: 'Test yourself',
     items: {
-      eye: 'The eye: the cornea does most of the focusing; the lens fine-tunes it onto the retina.',
-      camera: 'The camera: a lens system acts as one convex lens and forms an inverted image on the sensor.',
-      microscope: 'The microscope: two convex lenses make small objects hundreds of times larger; the image is inverted.',
-      telescope: 'The telescope: the objective forms a real image at its focal point, the eyepiece magnifies it, and the final image stays inverted.',
-      binoculars: 'Binoculars: prisms flip the image upright by total internal reflection and add depth.',
+      eye: 'The cornea refracts most light; the lens focuses it on the retina.',
+      camera: 'The lenses form an inverted image on the sensor.',
+      microscope: 'The objective forms a real, inverted image; the eyepiece magnifies it into a virtual image.',
+      telescope: 'The objective forms a real image at its focal point; the eyepiece magnifies it, still inverted.',
+      binoculars: 'Two prisms use total internal reflection to turn the image upright.',
     },
   },
   study: {

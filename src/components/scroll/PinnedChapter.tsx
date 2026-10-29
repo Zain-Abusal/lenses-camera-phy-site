@@ -89,6 +89,7 @@ function Pinned({ steps, pre = [], preStage, diagram, aside, caption, vhPerUnit 
     if (!stage) return
     const snapPoints = storySnapPoints(units)
     let settledSnap = 0
+    let pendingSnap = 0
     const ctx = gsap.context(() => {
       const panels = gsap.utils.toArray<HTMLElement>('[data-panel]', stage)
       const preLayer = stage.querySelector<HTMLElement>('[data-layer="pre"]')
@@ -124,17 +125,15 @@ function Pinned({ steps, pre = [], preStage, diagram, aside, caption, vhPerUnit 
             // A large wheel or trackpad gesture settles one beat at a time instead of hiding panels.
             snapTo: (progress) => {
               const target = nearestStorySnap(progress, snapPoints)
-              return snapPoints[Math.max(settledSnap - 1, Math.min(settledSnap + 1, target))]
+              pendingSnap = Math.max(settledSnap - 1, Math.min(settledSnap + 1, target))
+              return snapPoints[pendingSnap]
             },
             duration: { min: 0.25, max: 0.7 },
             delay: 0.12,
             ease: 'power2.inOut',
             inertia: false,
             onComplete: () => {
-              settledSnap = nearestStorySnap(tl.progress(), snapPoints)
-            },
-            onInterrupt: () => {
-              settledSnap = nearestStorySnap(tl.progress(), snapPoints)
+              settledSnap = pendingSnap
             },
           },
         },

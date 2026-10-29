@@ -413,7 +413,7 @@ export function Study() {
   const S = t.study
   const tabs = (['explore', 'compare', 'quiz', 'examples', 'summary', 'progress'] as const).filter((k) => k !== 'examples' || S.tabs.examples)
   return (
-    <section id="study" aria-labelledby="study-title" className="theme-light relative py-28 lg:py-40">
+    <section id="study" aria-labelledby="study-title" className="theme-light relative py-20 lg:py-28">
       <div className="mx-auto max-w-[1200px] px-6 sm:px-10">
         <div className="text-center">
           <p className="eyebrow">{S.kicker}</p>
@@ -422,7 +422,7 @@ export function Study() {
           </h2>
           <p className="subhead mx-auto mt-6 max-w-[40ch]">{S.intro}</p>
         </div>
-        <Tabs.Root defaultValue="explore" dir={dir} className="mt-14">
+        <Tabs.Root defaultValue="explore" dir={dir} className="mt-8">
           <Tabs.List aria-label={S.title} className="mx-auto flex w-fit max-w-full gap-0.5 overflow-x-auto rounded-full bg-[#e8e8ed] p-1">
             {tabs.map((k) => (
               <Tabs.Trigger
@@ -434,7 +434,7 @@ export function Study() {
               </Tabs.Trigger>
             ))}
           </Tabs.List>
-          <div className="pt-14">
+          <div className="pt-10">
             <Tabs.Content value="explore">
               <Explore />
             </Tabs.Content>
