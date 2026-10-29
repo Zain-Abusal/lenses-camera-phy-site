@@ -75,7 +75,7 @@ function PreText({ p }: { p: PrePanel }) {
   )
 }
 
-function Pinned({ steps, pre = [], preStage, diagram, aside, caption, vhPerUnit = 48, label }: Props) {
+function Pinned({ steps, pre = [], preStage, diagram, aside, caption, vhPerUnit = 38, label }: Props) {
   const nPre = preStage ? pre.length : 0
   const units = nPre + steps.length
   const store = useMemo(() => createStore(units), [units])
@@ -87,6 +87,11 @@ function Pinned({ steps, pre = [], preStage, diagram, aside, caption, vhPerUnit 
   useLayoutEffect(() => {
     const stage = stageRef.current
     if (!stage) return
+    const snapPoints = [0, ...Array.from({ length: units }, (_, i) => (i + 0.55) / units), 1]
+    let settledSnap = 0
+    const nearestSnap = (progress: number) =>
+      snapPoints.reduce((nearest, point, i) =>
+        Math.abs(point - progress) < Math.abs(snapPoints[nearest] - progress) ? i : nearest, 0)
     const ctx = gsap.context(() => {
       const panels = gsap.utils.toArray<HTMLElement>('[data-panel]', stage)
       const preLayer = stage.querySelector<HTMLElement>('[data-layer="pre"]')
@@ -119,12 +124,21 @@ function Pinned({ steps, pre = [], preStage, diagram, aside, caption, vhPerUnit 
           anticipatePin: 1,
           // when scrolling stops mid-way, glide to the nearest settled step (its text fully in)
           snap: {
-            // 0 and 1 included so the pin can always be entered and left without being pulled back
-            snapTo: [0, ...Array.from({ length: units }, (_, i) => (i + 0.55) / units), 1],
+            // A large wheel or trackpad gesture settles one beat at a time instead of hiding panels.
+            snapTo: (progress) => {
+              const target = nearestSnap(progress)
+              return snapPoints[Math.max(settledSnap - 1, Math.min(settledSnap + 1, target))]
+            },
             duration: { min: 0.25, max: 0.7 },
             delay: 0.12,
             ease: 'power2.inOut',
             inertia: false,
+            onComplete: () => {
+              settledSnap = nearestSnap(tl.progress())
+            },
+            onInterrupt: () => {
+              settledSnap = nearestSnap(tl.progress())
+            },
           },
         },
       })

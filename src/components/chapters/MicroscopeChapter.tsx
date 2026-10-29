@@ -71,7 +71,7 @@ export function MicroscopeChapter() {
       <PinnedChapter
         label={M.title}
         steps={M.steps}
-        vhPerUnit={45}
+        vhPerUnit={38}
         pre={[{ kicker: t.ui.artistic, title: M.zoomNote }]}
         preStage={(store) => <MicroPre store={store} />}
         diagram={(s) => <MicroscopeDiagram step={s} eyeSlot />}
