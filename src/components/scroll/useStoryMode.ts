@@ -18,14 +18,36 @@ export function useScrollTriggerRefresh() {
   const { lang } = useLang()
   useEffect(() => {
     let alive = true
-    document.fonts?.ready.then(() => {
-      if (alive) {
+    let frame = 0
+    let previousWidth = 0
+    let previousHeight = 0
+    const refresh = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
         ScrollTrigger.sort()
         ScrollTrigger.refresh()
-      }
+      })
+    }
+    const main = document.getElementById('main')
+    const observer = main && typeof ResizeObserver !== 'undefined' ? new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect
+      if (width === previousWidth && height === previousHeight) return
+      previousWidth = width
+      previousHeight = height
+      refresh()
+    }) : null
+    if (main) observer?.observe(main)
+    window.addEventListener('load', refresh)
+    window.addEventListener('orientationchange', refresh)
+    document.fonts?.ready.then(() => {
+      if (alive) refresh()
     })
     return () => {
       alive = false
+      cancelAnimationFrame(frame)
+      observer?.disconnect()
+      window.removeEventListener('load', refresh)
+      window.removeEventListener('orientationchange', refresh)
     }
   }, [])
   useEffect(() => {

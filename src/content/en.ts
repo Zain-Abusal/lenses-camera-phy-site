@@ -337,7 +337,7 @@ export const en: Content = {
       },
       {
         aspect: 'Lenses',
-        eye: 'The cornea does most of the focusing; the lens improves it',
+        eye: 'The cornea does most of the refraction; the lens fine-tunes the focus',
         camera: 'A lens system that acts like a single convex lens',
       },
       {
@@ -348,7 +348,7 @@ export const en: Content = {
       {
         aspect: 'Where the image forms',
         eye: 'On the retina',
-        camera: 'On the image sensor (on the mirror while the shutter is closed)',
+        camera: 'On the sensor when the shutter is open; the viewfinder directs it to the eye when closed',
       },
       {
         aspect: 'Recording the image',
@@ -530,7 +530,7 @@ export const en: Content = {
   study: {
     kicker: 'Study zone',
     title: 'Review, explore, test yourself',
-    intro: 'Try the optics yourself, work through the cornea problem, take the quiz, then revise with the summary and exam tips.',
+    intro: 'Explore optics, solve problems, and test your understanding.',
     tabs: { explore: 'Explore', compare: 'Compare', quiz: 'Quiz', summary: 'Summary', progress: 'Progress', examples: 'Examples' },
     explore: {
       title: 'Interactive explorations',

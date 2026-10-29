@@ -46,7 +46,7 @@ export function ScrollRing() {
           whileTap={{ scale: 0.94 }}
           transition={{ type: 'spring', stiffness: 380, damping: 28 }}
           style={{ ['--ring-tint' as string]: TINT[active] ?? '#2997ff' }}
-          className="group fixed bottom-4 end-4 z-50 grid size-11 place-items-center sm:size-12 rounded-full bg-[rgb(29_29_31/0.72)] text-[#f5f5f7] shadow-[0_8px_24px_rgb(0_0_0/0.35)] ring-1 ring-white/10 backdrop-blur-xl backdrop-saturate-150 sm:bottom-7 sm:end-7"
+          className="safe-inline-end group fixed bottom-[max(1rem,env(safe-area-inset-bottom))] z-50 grid size-11 place-items-center rounded-full bg-[rgb(29_29_31/0.72)] text-[#f5f5f7] shadow-[0_8px_24px_rgb(0_0_0/0.35)] ring-1 ring-white/10 backdrop-blur-xl backdrop-saturate-150 sm:bottom-7 sm:size-12"
         >
           <svg viewBox="0 0 48 48" className="absolute inset-0 size-full -rotate-90" aria-hidden>
             <circle cx="24" cy="24" r={R} fill="none" stroke="rgb(255 255 255 / 0.14)" strokeWidth="2" />

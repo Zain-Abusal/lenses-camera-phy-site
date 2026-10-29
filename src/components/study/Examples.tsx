@@ -49,7 +49,7 @@ function Example({ ex, index }: { ex: WorkedExample; index: number }) {
   const [shown, setShown] = useState(0)
   const done = shown >= ex.steps.length
   return (
-    <article className="rounded-[28px] bg-white p-7 sm:p-10">
+    <article className="rounded-lg bg-white p-7 sm:p-10">
       <p className="text-[14px] font-semibold text-ray tabular-nums">{String(index + 1).padStart(2, '0')}</p>
       <h4 className="mt-2 text-[24px] font-semibold leading-tight text-paper">{ex.title}</h4>
       <p className="mt-3 max-w-[65ch] text-[17px] leading-[1.55] text-paper-dim">
@@ -158,7 +158,7 @@ export function Examples() {
       </div>
       {S.examTips && S.examTips.length > 0 && (
         <aside className="lg:col-span-4">
-          <div className="rounded-[28px] bg-white p-7 sm:p-8 lg:sticky lg:top-24">
+          <div className="rounded-lg bg-white p-7 sm:p-8 lg:sticky lg:top-24">
             <h3 className="flex items-center gap-2 text-[21px] font-semibold text-paper">
               <Lightbulb size={18} className="text-amber" aria-hidden /> {L.examTips}
             </h3>

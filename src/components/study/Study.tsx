@@ -156,7 +156,7 @@ function Explore() {
           </button>
         ))}
       </div>
-      <div className="mt-8 rounded-[28px] bg-white p-6 sm:p-10">
+      <div className="mt-8 rounded-lg bg-white p-6 sm:p-10">
         <h4 className="text-[28px] font-semibold tracking-tight text-paper">{item.name}</h4>
         <p className="mt-2 max-w-[60ch] text-[17px] text-paper-dim">{item.body}</p>
         <div className="mt-8" key={id}>
@@ -172,8 +172,26 @@ function Compare() {
   const { t } = useLang()
   const T = t.study.compareTable
   return (
-    <div className="overflow-x-auto rounded-[28px]">
-      <table className="w-full min-w-[560px] border-collapse rounded-[28px] bg-white">
+    <div>
+      <ul className="divide-y divide-line border-y border-line md:hidden">
+        {T.rows.map((row, i) => (
+          <li key={i} className="py-4">
+            <h4 className="font-semibold text-paper">{row[0]}</h4>
+            <dl className="mt-3 grid grid-cols-2 gap-4 text-[14px]">
+              <div className="min-w-0">
+                <dt className="font-semibold text-ray">{T.head[1]}</dt>
+                <dd className="mt-1 break-words text-paper-dim">{row[1]}</dd>
+              </div>
+              <div className="min-w-0">
+                <dt className="font-semibold text-ray">{T.head[2]}</dt>
+                <dd className="mt-1 break-words text-paper-dim">{row[2]}</dd>
+              </div>
+            </dl>
+          </li>
+        ))}
+      </ul>
+      <div className="hidden overflow-x-auto rounded-lg md:block">
+      <table className="w-full min-w-[560px] border-collapse rounded-lg bg-white">
         <thead>
           <tr className="border-b border-line-strong">
             {T.head.map((h, i) =>
@@ -205,6 +223,7 @@ function Compare() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   )
 }

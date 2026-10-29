@@ -23,7 +23,7 @@ export function StickySteps({
   const a = Math.max(0, Math.min(active, steps.length - 1))
   return (
     <div className="relative mx-auto max-w-3xl">
-      <div className="sticky top-12 z-10 bg-ink-950 px-4 pb-3 pt-3">
+      <div className="sticky top-[calc(3rem+env(safe-area-inset-top))] z-10 bg-ink-950 px-4 pb-3 pt-3">
         <div className="[&_svg]:max-h-[38vh]">{diagram(a)}</div>
         {caption && <div className="mono mt-1 text-center text-mist">{caption}</div>}
       </div>

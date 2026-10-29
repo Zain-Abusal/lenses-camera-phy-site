@@ -59,7 +59,7 @@ export function FocusDemo() {
           </div>
         </div>
       </div>
-      <figure className="rounded-[28px] bg-ink-900 p-4 sm:p-8 lg:col-span-8">
+      <figure className="rounded-lg bg-ink-900 p-4 sm:p-8 lg:col-span-8">
         <CameraFocusDiagram dObj={dObj} v={v} />
         <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-mist">
           <span>{T.focusCaption}</span>
@@ -75,7 +75,7 @@ function ShutterPlay() {
   const [open, setOpen] = useState(false)
   return (
     <figure>
-      <div className="rounded-[28px] bg-[#000] p-4 theme-dark sm:p-8">
+      <div className="rounded-lg bg-[#000] p-4 theme-dark sm:p-8">
         <CameraDiagram step={open ? 3 : 1} />
       </div>
       <figcaption className="mt-4 flex flex-wrap items-center gap-4">
@@ -110,7 +110,7 @@ export function CameraChapter() {
         caption={t.ui.schematic}
       />
       <div className="theme-light">
-        <StudyAids aids={{ takeaway: T.takeaway }} />
+        <StudyAids aids={{ takeaway: T.takeaway, remember: T.remember, mistake: T.mistake, terms: T.terms }} />
       <div className="mx-auto max-w-[1200px] space-y-32 px-6 py-28 sm:px-10 lg:py-36">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -127,7 +127,24 @@ export function CameraChapter() {
         </div>
         <div>
           <h3 className="headline-2 text-paper">{T.compareTitle}</h3>
-          <div className="mt-8 overflow-x-auto">
+          <ul className="mt-6 divide-y divide-line border-y border-line md:hidden">
+            {T.compare.map((r, i) => (
+              <li key={i} className="py-4">
+                <h4 className="font-semibold text-paper">{r.aspect}</h4>
+                <dl className="mt-3 grid grid-cols-2 gap-4 text-[14px]">
+                  <div className="min-w-0">
+                    <dt className="font-semibold text-ray">{T.compareHead.eye}</dt>
+                    <dd className="mt-1 break-words text-paper-dim">{r.eye}</dd>
+                  </div>
+                  <div className="min-w-0">
+                    <dt className="font-semibold text-ray">{T.compareHead.camera}</dt>
+                    <dd className="mt-1 break-words text-paper-dim">{r.camera}</dd>
+                  </div>
+                </dl>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 hidden overflow-x-auto md:block">
             <table className="w-full min-w-[560px] border-collapse text-start">
               <thead>
                 <tr className="border-b border-line">
