@@ -66,8 +66,8 @@ export const ar: Content = {
     step: 'الخطوة',
     reducedMotion: 'وضع تقليل الحركة مفعّل، لذا بُسّطت الرسوم المتحركة.',
     toTop: 'العودة إلى الأعلى',
-    previousChapter: 'الفصل السابق',
-    nextChapter: 'الفصل التالي',
+    previousChapter: 'الشريحة السابقة',
+    nextChapter: 'الشريحة التالية',
     aids: {
       takeaway: 'الخلاصة',
       remember: 'تذكّر',

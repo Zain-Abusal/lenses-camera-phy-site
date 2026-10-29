@@ -29,7 +29,7 @@ export function StickySteps({
       </div>
       <ol className="px-6 sm:px-10">
         {steps.map((s, i) => (
-          <li key={i} ref={register(i)} className="flex min-h-[48svh] flex-col justify-center py-8">
+          <li key={i} ref={register(i)} data-story-slide className="flex min-h-[48svh] flex-col justify-center py-8">
             <div className={cn('transition-opacity duration-500', i === a ? 'opacity-100' : 'opacity-35')} aria-current={i === a ? 'step' : undefined}>
               <p className="eyebrow">
                 {t.ui.step} {i + 1}

@@ -168,6 +168,12 @@ section[id] {
 .safe-inline-end {
   inset-inline-end: max(1rem, env(safe-area-inset-right));
 }
+[dir='ltr'] .safe-inline-start {
+  inset-inline-start: max(1rem, env(safe-area-inset-left));
+}
+[dir='rtl'] .safe-inline-start {
+  inset-inline-start: max(1rem, env(safe-area-inset-right));
+}
 [dir='rtl'] .safe-inline-end {
   inset-inline-end: max(1rem, env(safe-area-inset-left));
 }

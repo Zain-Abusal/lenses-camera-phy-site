@@ -4,7 +4,7 @@ import type { Step } from '@/content/types'
 import { useLang } from '@/lib/i18n'
 import { StickySteps } from '@/components/ui/StickySteps'
 import { cn } from '@/components/util'
-import { createStore, finalStore, gsap, ScrollTrigger, type ProgressStore } from './store'
+import { createStore, finalStore, gsap, nearestStorySnap, ScrollTrigger, storySnapPoints, type ProgressStore } from './store'
 import { useStoryMode } from './useStoryMode'
 import { eyeHot } from '@/components/eye/store'
 import { Rich } from '@/components/ui/Rich'
@@ -87,11 +87,8 @@ function Pinned({ steps, pre = [], preStage, diagram, aside, caption, vhPerUnit 
   useLayoutEffect(() => {
     const stage = stageRef.current
     if (!stage) return
-    const snapPoints = [0, ...Array.from({ length: units }, (_, i) => (i + 0.55) / units), 1]
+    const snapPoints = storySnapPoints(units)
     let settledSnap = 0
-    const nearestSnap = (progress: number) =>
-      snapPoints.reduce((nearest, point, i) =>
-        Math.abs(point - progress) < Math.abs(snapPoints[nearest] - progress) ? i : nearest, 0)
     const ctx = gsap.context(() => {
       const panels = gsap.utils.toArray<HTMLElement>('[data-panel]', stage)
       const preLayer = stage.querySelector<HTMLElement>('[data-layer="pre"]')
@@ -126,7 +123,7 @@ function Pinned({ steps, pre = [], preStage, diagram, aside, caption, vhPerUnit 
           snap: {
             // A large wheel or trackpad gesture settles one beat at a time instead of hiding panels.
             snapTo: (progress) => {
-              const target = nearestSnap(progress)
+              const target = nearestStorySnap(progress, snapPoints)
               return snapPoints[Math.max(settledSnap - 1, Math.min(settledSnap + 1, target))]
             },
             duration: { min: 0.25, max: 0.7 },
@@ -134,10 +131,10 @@ function Pinned({ steps, pre = [], preStage, diagram, aside, caption, vhPerUnit 
             ease: 'power2.inOut',
             inertia: false,
             onComplete: () => {
-              settledSnap = nearestSnap(tl.progress())
+              settledSnap = nearestStorySnap(tl.progress(), snapPoints)
             },
             onInterrupt: () => {
-              settledSnap = nearestSnap(tl.progress())
+              settledSnap = nearestStorySnap(tl.progress(), snapPoints)
             },
           },
         },
@@ -167,17 +164,17 @@ function Pinned({ steps, pre = [], preStage, diagram, aside, caption, vhPerUnit 
   const stepBeat = Math.max(0, beat - nPre)
   return (
     <div className="relative">
-      <div ref={stageRef} className="relative h-screen w-full overflow-hidden" aria-label={label} role="group">
+      <div ref={stageRef} data-story-slides={units} className="relative h-screen w-full overflow-hidden" aria-label={label} role="group">
         <div className="mx-auto grid h-full max-w-[1280px] grid-cols-12 items-center gap-10 px-10 pb-10 pt-[72px] xl:px-16">
           <div className="col-span-4 flex h-full flex-col justify-center gap-8">
             <div className="grid">
               {pre.slice(0, nPre).map((p, i) => (
-                <div key={`p${i}`} data-panel className="[grid-area:1/1] self-center">
+                <div key={`p${i}`} data-panel data-story-slide className="[grid-area:1/1] self-center">
                   <PreText p={p} />
                 </div>
               ))}
               {steps.map((s, i) => (
-                <div key={`s${i}`} data-panel className="[grid-area:1/1] self-center">
+                <div key={`s${i}`} data-panel data-story-slide className="[grid-area:1/1] self-center">
                   <StepText i={i} n={steps.length} s={s} />
                 </div>
               ))}
@@ -251,7 +248,7 @@ function Static({ steps, pre = [], preStage, diagram, aside, caption, staticDiag
       <div className="grid gap-12 lg:grid-cols-12">
         <ol className="space-y-12 lg:col-span-5">
           {steps.map((s, i) => (
-            <li key={i}>
+            <li key={i} data-story-slide>
               <StepText i={i} n={steps.length} s={s} large={false} />
             </li>
           ))}
